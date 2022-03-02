@@ -1,3 +1,6 @@
+(The project is still in development.)
+<br/>
+<br/>
 <strong>Microservices;</strong></br>
 </br>Catalog microservice;</br>
 <li>The microservice that will be responsible for keeping and presenting our information about our courses;</li>
