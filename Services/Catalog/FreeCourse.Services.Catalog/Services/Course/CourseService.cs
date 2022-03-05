@@ -20,7 +20,7 @@ namespace FreeCourse.Services.Catalog.Services
         {
             var client = new MongoClient(databaseSettings.ConnectionString);
             var database = client.GetDatabase(databaseSettings.DatabaseName);
-            _courseCollection = database.GetCollection<Course>(databaseSettings.CategoryCollectionName);
+            _courseCollection = database.GetCollection<Course>(databaseSettings.CourseCollectionName);
             _categoryCollection = database.GetCollection<Category>(databaseSettings.CategoryCollectionName);
             _mapper = mapper;
         }
