@@ -13,3 +13,8 @@
 <li>Sql Server(Database)</li>
 
 <li>Our microservice that will be responsible for keeping user data, generating tokens and refresh tokens.</li>
+
+
+</br>PhotoStock Microservice;</br>
+
+<li>Our microservice that will be responsible for keeping and presenting course photos.</li>
