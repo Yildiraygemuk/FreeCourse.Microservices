@@ -18,3 +18,4 @@
 </br>PhotoStock Microservice;</br>
 
 <li>Our microservice that will be responsible for keeping and presenting course photos.</li>
+<li>Net Core 5.0</li>
