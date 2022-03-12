@@ -21,3 +21,7 @@
 <li>Net Core 5.0</li>
 
 </br> Basket Microservice; </br>
+<li>Our microservice will be responsible for basket responsibility.</li>
+
+<li>RedisDB(Database)</li>
+<li>Net Core 5.0</li>
