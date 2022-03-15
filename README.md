@@ -26,9 +26,10 @@
 <li>RedisDB(Database)</li>
 <li>Net Core 5.0</li>
 
-<br>Discount Microservice</br>
+<br>Discount Microservice;</br>
 
 <li>Our microservice that will be responsible for the discount coupons that will be defined to the user.</li>
 
 <li>PostgreSQL(Database)</li>
 <li>Net Core 5.0</li>
+
