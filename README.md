@@ -33,7 +33,7 @@
 <li>PostgreSQL(Database)</li>
 <li>Net Core 5.0</li>
 
-<br> Order Microservice; </br>
+<br> Order Microservice;</br>
 
 <li>Our microservice that will be responsible for order processing.</li>
 
