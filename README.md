@@ -47,3 +47,8 @@
 <li>Domain Driven Design</li>
 
 <li>CQRS (MediatR Library)</li>
+
+<br>FakePayment Microservice</br>
+
+<li>Our microservice that will be responsible for payment processing.</li>
+<li>Net Core 5.0</li>
