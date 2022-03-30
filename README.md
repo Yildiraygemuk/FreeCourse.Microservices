@@ -33,3 +33,17 @@
 <li>PostgreSQL(Database)</li>
 <li>Net Core 5.0</li>
 
+<br> Order Microservice;</br>
+
+<li>Our microservice that will be responsible for order processing.</li>
+
+<li>I developed this microservice using the Domain Driven Design approach.</li>
+
+<li>In this microservice, I used the MediatR library to implement the CQRS design pattern.</li>
+
+<li>Sql Server(Database)</li>
+<li>Net Core 5.0</li>
+
+<li>Domain Driven Design</li>
+
+<li>CQRS (MediatR Library)</li>
