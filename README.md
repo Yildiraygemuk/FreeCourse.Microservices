@@ -58,5 +58,6 @@
 <li>Ocelot Library</li>
 
 <br>Asp.Net Core MVC Microservice</br>
-
-UserController and cookies are done.
+<li>(In process)</li>
+<li>UserController and cookies are done.</li>
+<li>Login-logout and token are done. </li>
