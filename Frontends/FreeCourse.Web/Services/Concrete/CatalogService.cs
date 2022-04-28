@@ -44,7 +44,7 @@ namespace FreeCourse.Web.Services.Concrete
 
         public async Task<List<CourseVm>> GetAllCourseAsync()
         {
-            var response = await _client.GetAsync("courses");
+            var response = await _client.GetAsync("course");
             if (!response.IsSuccessStatusCode)
             {
                 return null;
@@ -55,7 +55,7 @@ namespace FreeCourse.Web.Services.Concrete
 
         public async Task<List<CourseVm>> GetAllCourseByUserIdAsync(string userId)
         {
-            var response = await _client.GetAsync($"courses/GetAllByUserId/{userId}");
+            var response = await _client.GetAsync($"course/GetAllByUserId/{userId}");
             if (!response.IsSuccessStatusCode)
             {
                 return null;
@@ -66,7 +66,7 @@ namespace FreeCourse.Web.Services.Concrete
 
         public async Task<CourseVm> GetByCourseId(string courseId)
         {
-            var response = await _client.GetAsync($"courses//{courseId}");
+            var response = await _client.GetAsync($"course//{courseId}");
             if (!response.IsSuccessStatusCode)
             {
                 return null;
