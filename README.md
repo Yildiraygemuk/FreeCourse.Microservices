@@ -62,3 +62,5 @@
 <li>UserController and cookies are done.</li>
 <li>Login-logout and token are done. </li>
 <li>Course Controller and Course Services are done</li>
+<li>Course List and Course add done.</li>
+<li>TokenHandler is done</li>
