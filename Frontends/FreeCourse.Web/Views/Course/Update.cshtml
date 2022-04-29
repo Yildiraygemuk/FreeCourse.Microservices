@@ -1,18 +1,20 @@
 ﻿@{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Update";
 }
-@model CourseCreateInput
+@model CourseUpdateInput
 <div class="row">
     <div class="col-md-8 offset-md-2">
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Kurs Ekleme</h5>
-                <form asp-controller="Course" asp-action="Create" method="post" enctype="multipart/form-data">
+                <h5 class="card-title">Kurs Güncelleme</h5>
+                <form asp-controller="Course" asp-action="Update" method="post" enctype="multipart/form-data">
                     <div asp-validation-summary="ModelOnly"></div>
+                    <input type="hidden" asp-for="Id" />
+                    <input type="hidden" asp-for="UserId" />
+                    <input type="hidden" asp-for="Picture" />
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label" asp-for="CategoryId"></label>
                         <select asp-for="CategoryId" class="form-control" asp-items="@ViewBag.categoryList">
-                            <option value="">kategori seçiniz</option>
                         </select>
                         <span class="text-danger" asp-validation-for="CategoryId"></span>
                     </div>
@@ -37,7 +39,7 @@
                         <span class="text-danger" asp-validation-for="Feature.Duration"></span>
                     </div>
                     @*RESİM GELECEK*@
-                    <button type="submit" class="btn-primary btn-primary">Kurs Kaydet</button>
+                    <button type="submit" class="btn-primary btn-primary">Kurs Güncelle</button>
                 </form>
             </div>
         </div>

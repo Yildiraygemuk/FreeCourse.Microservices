@@ -66,7 +66,7 @@ namespace FreeCourse.Web.Services.Concrete
 
         public async Task<CourseVm> GetByCourseId(string courseId)
         {
-            var response = await _client.GetAsync($"course//{courseId}");
+            var response = await _client.GetAsync($"course/{courseId}");
             if (!response.IsSuccessStatusCode)
             {
                 return null;
