@@ -13,7 +13,7 @@
                     <input type="hidden" asp-for="UserId" />
                     <input type="hidden" asp-for="Picture" />
                     <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label" asp-for="CategoryId"></label>
+                        <label for="exampleFormControlInput1" class="form-label"></label>
                         <select asp-for="CategoryId" class="form-control" asp-items="@ViewBag.categoryList">
                         </select>
                         <span class="text-danger" asp-validation-for="CategoryId"></span>

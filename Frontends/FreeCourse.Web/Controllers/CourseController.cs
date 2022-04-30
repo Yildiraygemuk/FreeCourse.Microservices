@@ -44,7 +44,7 @@ namespace FreeCourse.Web.Controllers
         public async Task<IActionResult> Update(string id)
         {
             var course = await _catalogService.GetByCourseId(id);
-            var categories = await _catalogService.GetAllCourseAsync();
+            var categories = await _catalogService.GetAllCategoryAsync();
             if (course is null)
             {
                 //todo: Error warnings
@@ -72,6 +72,11 @@ namespace FreeCourse.Web.Controllers
             if (!ModelState.IsValid)
                 return View();
             await _catalogService.UpdateCourseAsync(courseUpdateInput);
+            return RedirectToAction(nameof(Index));
+        }
+        public async Task<IActionResult> Delete(string id)
+        {
+            await _catalogService.DeleteCourseAsync(id);
             return RedirectToAction(nameof(Index));
         }
     }
