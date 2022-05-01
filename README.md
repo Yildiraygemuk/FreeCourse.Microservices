@@ -65,4 +65,6 @@
 <li>Course List and Course add done.</li>
 <li>TokenHandler is done</li>
 <li>Course add - update done/li>
-  <li>Photo add is done</li>
+<li>Photo add is done</li>
+<li>Course Photo Stock add- update is done</li>
+<li>Home List is done</li>
