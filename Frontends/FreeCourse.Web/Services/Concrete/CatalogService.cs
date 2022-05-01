@@ -1,4 +1,5 @@
 ﻿using FreeCourse.Shared.Dtos;
+using FreeCourse.Web.Helpers;
 using FreeCourse.Web.Models.Catalogs;
 using FreeCourse.Web.Services.Abstract;
 using System;
@@ -14,11 +15,13 @@ namespace FreeCourse.Web.Services.Concrete
     {
         private readonly HttpClient _client;
         private readonly IPhotoStockService _photoStockService;
+        private readonly PhotoHelper _photoHelper;
 
-        public CatalogService(HttpClient client,IPhotoStockService photoStockService)
+        public CatalogService(HttpClient client, IPhotoStockService photoStockService, PhotoHelper photoHelper)
         {
             _client = client;
             _photoStockService = photoStockService;
+            _photoHelper = photoHelper;
         }
 
         public async Task<bool> CreateCourseAsync(CourseCreateInput courseCreateInput)
@@ -55,6 +58,10 @@ namespace FreeCourse.Web.Services.Concrete
                 return null;
             }
             var responseSuccess = await response.Content.ReadFromJsonAsync<Response<List<CourseVm>>>();
+            responseSuccess.Data.ForEach(x =>
+            {
+                x.Picture = _photoHelper.GetPhotoStockUrl(x.Picture);
+            });
             return responseSuccess.Data;
         }
 
@@ -66,6 +73,10 @@ namespace FreeCourse.Web.Services.Concrete
                 return null;
             }
             var responseSuccess = await response.Content.ReadFromJsonAsync<Response<List<CourseVm>>>();
+            responseSuccess.Data.ForEach(x =>
+            {
+                x.Picture = _photoHelper.GetPhotoStockUrl(x.Picture);
+            });
             return responseSuccess.Data;
         }
 
@@ -82,6 +93,12 @@ namespace FreeCourse.Web.Services.Concrete
 
         public async Task<bool> UpdateCourseAsync(CourseUpdateInput courseUpdateInput)
         {
+            var resultPhotoService = await _photoStockService.UploadPhoto(courseUpdateInput.PhotoFormFile);
+            if (resultPhotoService is not null)
+            {
+                await _photoStockService.DeletePhoto(courseUpdateInput.Picture);
+                courseUpdateInput.Picture = resultPhotoService.Url;
+            }
             var response = await _client.PutAsJsonAsync<CourseUpdateInput>("course", courseUpdateInput);
             return response.IsSuccessStatusCode;
         }
