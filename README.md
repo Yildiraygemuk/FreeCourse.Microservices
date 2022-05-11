@@ -58,4 +58,3 @@
 <li>Ocelot Library</li>
 
 <br>Asp.Net Core MVC Microservice</br>
-<li>(In process)</li>
