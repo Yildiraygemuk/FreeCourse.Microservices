@@ -58,13 +58,3 @@
 <li>Ocelot Library</li>
 
 <br>Asp.Net Core MVC Microservice</br>
-<li>(In process)</li>
-<li>UserController and cookies are done.</li>
-<li>Login-logout and token are done. </li>
-<li>Course Controller and Course Services are done</li>
-<li>Course List and Course add done.</li>
-<li>TokenHandler is done</li>
-<li>Course add - update done/li>
-<li>Photo add is done</li>
-<li>Course Photo Stock add- update is done</li>
-<li>Home List is done</li>
