@@ -1,5 +1,7 @@
-﻿using FreeCourse.Web.Models;
+﻿using FreeCourse.Web.Exceptions;
+using FreeCourse.Web.Models;
 using FreeCourse.Web.Services.Abstract;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -26,6 +28,11 @@ namespace FreeCourse.Web.Controllers
             return View(await _catalogService.GetAllCourseAsync());
         }
 
+        public async Task<IActionResult> Detail(string id)
+        {
+            return View(await _catalogService.GetByCourseId(id));
+        }
+
         public IActionResult Privacy()
         {
             return View();
@@ -34,6 +41,11 @@ namespace FreeCourse.Web.Controllers
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
+            var errorFeature = HttpContext.Features.Get<IExceptionHandlerFeature>();
+            if(errorFeature != null && errorFeature.Error is UnAuthorizeException)
+            {
+                return RedirectToAction(nameof(AuthController.Logout), "Auth");
+            }
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
