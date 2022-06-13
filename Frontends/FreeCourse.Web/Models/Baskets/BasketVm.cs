@@ -6,6 +6,10 @@ namespace FreeCourse.Web.Models.Baskets
 {
     public class BasketVm
     {
+        public BasketVm()
+        {
+            _basketItems = new List<BasketItemVm>();
+        }
         public string UserId { get; set; }
         public string DiscountCode { get; set; }
         public int? DiscountRate { get; set; }

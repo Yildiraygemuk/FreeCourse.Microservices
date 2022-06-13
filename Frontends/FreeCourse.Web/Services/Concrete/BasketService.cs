@@ -20,6 +20,7 @@ namespace FreeCourse.Web.Services.Concrete
         public async Task AddBasketItem(BasketItemVm basketItemVm)
         {
             var basket = await Get();
+
             if(basket != null)
             {
                 if(!basket.BasketItems.Any(x=> x.CourseId == basketItemVm.CourseId))
@@ -79,7 +80,8 @@ namespace FreeCourse.Web.Services.Concrete
         public async Task<bool> SaveOrUpdate(BasketVm basketVm)
         {
             var response = await _httpClient.PostAsJsonAsync<BasketVm>("basket", basketVm);
-            throw new System.NotImplementedException();
+            return response.IsSuccessStatusCode;
+
         }
     }
 }
