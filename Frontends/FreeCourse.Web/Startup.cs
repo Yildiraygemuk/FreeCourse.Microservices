@@ -1,3 +1,4 @@
+using FluentValidation.AspNetCore;
 using FreeCourse.Shared.Services;
 using FreeCourse.Web.Extensions;
 using FreeCourse.Web.Handler;
@@ -49,7 +50,7 @@ namespace FreeCourse.Web
                  opts.SlidingExpiration = true;
                  opts.Cookie.Name = "udemywebcookie";
              });
-            services.AddControllersWithViews();
+            services.AddControllersWithViews().AddFluentValidation((fv => fv.RegisterValidatorsFromAssemblyContaining<CourseCreateInputValidator>()));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
