@@ -11,19 +11,21 @@ namespace FreeCourse.Web.Services.Concrete
     public class BasketService : IBasketService
     {
         private readonly HttpClient _httpClient;
+        private readonly IDiscountService _discountService;
 
-        public BasketService(HttpClient httpClient)
+        public BasketService(HttpClient httpClient, IDiscountService discountService)
         {
             _httpClient = httpClient;
+            _discountService = discountService;
         }
 
         public async Task AddBasketItem(BasketItemVm basketItemVm)
         {
             var basket = await Get();
 
-            if(basket != null)
+            if (basket != null)
             {
-                if(!basket.BasketItems.Any(x=> x.CourseId == basketItemVm.CourseId))
+                if (!basket.BasketItems.Any(x => x.CourseId == basketItemVm.CourseId))
                 {
                     basket.BasketItems.Add(basketItemVm);
                 }
@@ -36,14 +38,28 @@ namespace FreeCourse.Web.Services.Concrete
             await SaveOrUpdate(basket);
         }
 
-        public Task<bool> ApplyDiscount(string discountCode)
+        public async Task<bool> ApplyDiscount(string discountCode)
         {
-            throw new System.NotImplementedException();
+            await CancelApplyDiscount();
+            var basket = await Get();
+            if (basket == null)
+                return false;
+            var hasDiscount = await _discountService.GetDiscount(discountCode);
+            if (hasDiscount == null)
+                return false;
+            basket.ApplyDiscount(hasDiscount.Code, hasDiscount.Rate);
+            await SaveOrUpdate(basket);
+            return true;
         }
 
-        public Task<bool> CancelApplyDiscount()
+        public async Task<bool> CancelApplyDiscount()
         {
-            throw new System.NotImplementedException();
+            var basket = await Get();
+            if (basket == null || basket.DiscountCode == null)
+                return false;
+            basket.CancelDiscount();
+            await SaveOrUpdate(basket);
+            return true;
         }
 
         public async Task<bool> Delete()
