@@ -1,11 +1,11 @@
-﻿{
+{
   "$schema": "http://json.schemastore.org/launchsettings.json",
   "iisSettings": {
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:39014",
-      "sslPort": 0
+      "applicationUrl": "http://localhost:53455/",
+      "sslPort": 44370
     }
   },
   "profiles": {
@@ -19,13 +19,12 @@
     },
     "FreeCourse.Services.Catalog": {
       "commandName": "Project",
-      "dotnetRunMessages": "true",
-      "launchBrowser": false,
       "launchUrl": "swagger",
-      "applicationUrl": "http://localhost:5011",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      }
+      },
+      "applicationUrl": "http://localhost:5011",
+      "dotnetRunMessages": "true"
     }
   }
 }
