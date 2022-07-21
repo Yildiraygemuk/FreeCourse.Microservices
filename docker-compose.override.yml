@@ -52,11 +52,21 @@ services:
   catalog.api:
     container_name: catalog.api
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-      - RabbitMQUrl:rabbitmq
-      - IdentityServerURL:http://identityserver.api:5001
-      - DatabaseSettings:ConnectionString=mongodb://catalogdb:27017
+    - ASPNETCORE_ENVIRONMENT=Development
+    - RabbitMQUrl:rabbitmq
+    - IdentityServerURL:http://identityserver.api:5001
+    - DatabaseSettings:ConnectionString=mongodb://catalogdb:27017
     ports:
       - "5011:80"
     depends_on:
       - catalogdb
+  identityserver.api:
+    container_name: identityserver.api
+    restart: on-failure
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "ConnectionStrings:DefaultConnection=Server=identitydb,1433;Database=IdentityDb; User=sa; Password=Password12*"
+    ports:
+      - "5001:80"
+    depends_on:
+      - identitydb
