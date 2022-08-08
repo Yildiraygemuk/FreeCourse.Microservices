@@ -122,3 +122,10 @@ services:
       - "5015:80"
     depends_on:
       - orderdb
+  gateway.api:
+    container_name: gateway.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - IdentityServerURL=http://identityserver.api
+    ports:
+      - "5000:80"
