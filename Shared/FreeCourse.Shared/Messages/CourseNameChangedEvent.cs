@@ -8,5 +8,6 @@ namespace FreeCourse.Shared.Messages
     {
         public string CourseId { get; set; }
         public string UpdatedName { get; set; }
+        public DateTime? UpdatedDate { get; set; }
     }
 }
