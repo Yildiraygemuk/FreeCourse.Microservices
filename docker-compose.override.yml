@@ -138,3 +138,12 @@ services:
 
     ports:
       - "5010:80"
+    depends_on:
+        - gateway.api
+        - identityserver.api
+        - catalog.api
+        - basket.api
+        - discount.api
+        - order.api
+        - photostock.api
+        - fakepayment.api
