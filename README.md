@@ -1,4 +1,4 @@
-(The project is still in development.)
+
 <br/>
 <br/>
 <strong>Microservices;</strong></br>
